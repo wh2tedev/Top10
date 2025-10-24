@@ -22,6 +22,34 @@
       </tbody>
     </table>
   </div>
+  <!-- Botón tipo hamburger -->
+<button id="btn-config" class="btn-config">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Sidebar -->
+<div id="sidebar-config" class="sidebar-config">
+  <h2>Configuración</h2>
+  
+  <div class="config-item">
+    <label for="switch-medallas">Mostrar medallas</label>
+    <label class="switch">
+      <input type="checkbox" id="switch-medallas">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  
+  <div class="config-item">
+    <label for="select-orden">Ordenar ranking por</label>
+    <select id="select-orden">
+      <option value="puntaje">⭐ Puntaje total</option>
+      <option value="goles">⚽ Goles</option>
+      <option value="asistencias">🎯 Asistencias</option>
+    </select>
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>
