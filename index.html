@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 10 Jugadores</title>
+
+<style>
+  /* 🎨 Estilos generales (dark mode) */
+  body {
+    background-color: #0d1117;
+    color: #e6edf3;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00c8ff;
+    text-shadow: 0 0 10px #00c8ff;
+  }
+
+  table {
+    width: 90%;
+    max-width: 600px;
+    border-collapse: collapse;
+    background: #161b22;
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #30363d;
+  }
+
+  th {
+    background-color: #00c8ff;
+    color: #0d1117;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  tr:hover {
+    background-color: #1f6feb;
+    color: white;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+  }
+
+  /* 🌀 Animación de aparición */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ✨ Animación del título */
+  @keyframes glow {
+    0% { text-shadow: 0 0 5px #00c8ff; }
+    50% { text-shadow: 0 0 20px #00c8ff; }
+    100% { text-shadow: 0 0 5px #00c8ff; }
+  }
+
+  h1 {
+    animation: glow 2s infinite;
+  }
+</style>
+</head>
+
+<body>
+  <div>
+    <h1>🏆 Top 10 Jugadores ⚽</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Posición</th>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Franklin</td></tr>
+        <tr><td>2</td><td>Ezequiel</td></tr>
+        <tr><td>3</td><td>Samuel</td></tr>
+        <tr><td>4</td><td>Steven</td></tr>
+        <tr><td>5</td><td>Bola</td></tr>
+        <tr><td>6</td><td>Jhordy</td></tr>
+        <tr><td>7</td><td>Royce</td></tr>
+        <tr><td>8</td><td>Alexandrina</td></tr>
+        <tr><td>9</td><td>Luis</td></tr>
+        <tr><td>10</td><td>Hessiel</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
