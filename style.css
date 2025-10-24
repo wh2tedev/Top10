@@ -1,0 +1,114 @@
+/* Estilos base (dark mode) */
+:root {
+  --bg: #0d1117;
+  --card: #16181b;
+  --muted: #aeb6c2;
+  --accent: #00c8ff;
+  --row-hover: #1f2937;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: #e6edf3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px;
+}
+
+.tabla-container {
+  width: 100%;
+  max-width: 760px;
+  background: linear-gradient(180deg, #0f1317 0%, #14181b 100%);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* Titulo */
+.tabla-container h1 {
+  margin: 0 0 14px 0;
+  text-align: center;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0,200,255,0.12);
+  font-size: 20px;
+}
+
+/* Table */
+.table-responsive { overflow-x: auto; }
+.tabla-jugadores {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* header */
+.tabla-jugadores thead th {
+  text-align: left;
+  padding: 12px 16px;
+  background: linear-gradient(90deg, rgba(0,200,255,0.08), rgba(0,200,255,0.02));
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* filas jugador */
+.tabla-jugadores tbody tr.player td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* hover / focus para accesibilidad */
+.tabla-jugadores tbody tr.player:hover,
+.tabla-jugadores tbody tr.player:focus {
+  background: var(--row-hover);
+  color: #fff;
+  outline: none;
+  transition: background 180ms ease;
+}
+
+/* stats-row (la fila que contiene el bloque animado) */
+.tabla-jugadores tbody tr.stats-row td {
+  padding: 0; /* el padding lo aplica el .stats-content */
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.01);
+}
+
+/* bloque animado dentro de la celda (control de altura y transición) */
+.stats-content {
+  padding: 12px 16px;
+  color: var(--muted);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  overflow: hidden;
+  max-height: 0;              /* oculto por defecto */
+  opacity: 0;
+  transition: max-height 360ms cubic-bezier(.2,.9,.2,1), opacity 240ms ease;
+  transform-origin: top;
+}
+
+/* estado abierto (se añade la clase 'open' a la fila .stats-row desde JS) */
+.stats-row.open td .stats-content {
+  opacity: 1;
+  /* max-height se ajusta por JS (inline style) para que coincida con scrollHeight */
+}
+
+/* pequeño efecto visual para el texto de stats */
+.stats-content strong { color: #fff; margin-right: 6px; }
+
+/* responsive */
+@media (max-width: 520px) {
+  .tabla-container { padding: 12px; }
+  .tabla-jugadores thead th, .tabla-jugadores tbody td { padding: 10px; font-size: 14px; }
+  .tabla-container h1 { font-size: 18px; }
+}
