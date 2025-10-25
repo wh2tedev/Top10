@@ -198,3 +198,7 @@ input:checked + .slider:before { transform: translateX(24px); }
   cursor: pointer;
 }
 #select-orden option { background-color: #222; color: #fff; }
+h3 {
+  text-align: center;
+  color: lightgray;
+}
