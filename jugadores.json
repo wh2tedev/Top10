@@ -3,7 +3,7 @@
     "nombre": "Ezequiel (EI)",
     "goles": 1,
     "asistencias": 8,
-    "gp": 0,17
+    "gp": 0.17
   },
   {
     "nombre": "Bola (LI)",
@@ -15,7 +15,7 @@
     "nombre": "Samuel (MC/ED)",
     "goles": 8,
     "asistencias": 5,
-    "gp": 1,33
+    "gp": 1.33
   },
   {
     "nombre": "Steven (MC/DEL)",
@@ -63,18 +63,18 @@
     "nombre": "Josmil (DC)",
     "goles": 11,
     "asistencias": 1,
-    "gp": 1,83
+    "gp": 1.83
   },
   {
     "nombre": "Andres (POR)",
     "goles": 2,
     "asistencias": 2,
-    "gp": 0,17
+    "gp": 0.17
   },
   {
     "nombre": "Antony (DFC)",
     "goles": 1,
     "asistencias": 2,
-    "gp": 0,08
+    "gp": 0.08
   }
 ]
