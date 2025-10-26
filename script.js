@@ -6,6 +6,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   const selectOrden = document.getElementById("select-orden");
   const btnConfig = document.getElementById("btn-config");
   const sidebar = document.getElementById("sidebar-config");
+  // Switch de tema
+const switchTema = document.getElementById("switch-tema");
+
+// Leer tema guardado
+const temaActual = localStorage.getItem("tema") || "oscuro";
+if (temaActual === "claro") {
+  document.body.classList.add("light");
+  switchTema.checked = true;
+}
+
+// Cambiar tema
+switchTema.addEventListener("change", () => {
+  if (switchTema.checked) {
+    document.body.classList.add("light");
+    localStorage.setItem("tema", "claro");
+  } else {
+    document.body.classList.remove("light");
+    localStorage.setItem("tema", "oscuro");
+  }
+});
 
   // Abrir/cerrar sidebar
   btnConfig.addEventListener("click", () => {
