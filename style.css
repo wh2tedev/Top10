@@ -204,3 +204,86 @@ h3 {
   align-items: center;
   color: lightgray;
 }
+/* --- Ajustes para modo claro/oscuro --- */
+body.light {
+  --bg: #f8f9fa;
+  --card: #ffffff;
+  --muted: #374151;
+  --accent: #0077ff;
+  --row-hover: #e0e7ff;
+  color: #111;
+}
+
+/* Tabla y textos en modo claro */
+body.light .tabla-container {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light .tabla-jugadores {
+  background: var(--card);
+  color: #111;
+}
+
+body.light .tabla-jugadores thead th {
+  color: var(--accent);
+  background: linear-gradient(90deg, rgba(0,119,255,0.12), rgba(0,119,255,0.04));
+}
+
+body.light .tabla-jugadores tbody tr.player:hover,
+body.light .tabla-jugadores tbody tr.player:focus {
+  background: var(--row-hover);
+  color: #000;
+}
+
+body.light .tabla-jugadores tbody tr.stats-row td {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+body.light .stats-content {
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+body.light .stats-content strong {
+  color: #000;
+}
+
+/* Sidebar en modo claro */
+body.light .sidebar-config {
+  background: #f0f0f0;
+  color: #111;
+}
+
+body.light #select-orden {
+  background-color: #ddd;
+  color: #111;
+}
+
+body.light .btn-config span {
+  background-color: var(--accent);
+}
+
+body.light .slider {
+  background-color: #999;
+}
+
+body.light input:checked + .slider {
+  background-color: var(--accent);
+}
+
+/* Divisor entre secciones del sidebar */
+.config-divider {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 16px 0;
+}
+body.light .config-divider {
+  border-color: rgba(0,0,0,0.1);
+              }
+/* Transición general de colores al cambiar tema */
+body, .tabla-container, .tabla-jugadores, .sidebar-config, .stats-content {
+  transition: 
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
+    }
