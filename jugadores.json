@@ -46,7 +46,9 @@
     "asistencias": 2,
     "gp": 0.375,
     "hattricks": 0,
-    "ap": 0.25
+    "ap": 0.25,
+    "bloqueos": 4,
+    "entradas": 2
   },
   {
     "nombre": "Alexander (DFC)",
