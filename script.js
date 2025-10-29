@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // --- CARGAR JSON ---
   let jugadores = [];
   try {
-    const response = await fetch("jugadores.json");
+    const response = await fetch(`jugadores.json?nocache=${Date.now()}`);
     jugadores = await response.json();
   } catch (err) {
     console.error("Error al cargar jugadores.json", err);
