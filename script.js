@@ -42,21 +42,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // --- CALCULAR PUNTAJE ---
   jugadores.forEach(j => {
-    j.ap = j.goles && j.gp ? (j.asistencias / j.gp).toFixed(2) : 0; // Asistencias por partido
-    if (j.nombre.includes("(POR)")) {
-      j.salvadas = j.salvadas || 0;
-      j.puntaje = j.goles * 2 + j.asistencias + j.salvadas * 2;
-    } else if (j.nombre.includes("(DFC)")) {
-      j.bloqueos = j.bloqueos || 0;
-      j.entradas = j.entradas || 0;
-      j.puntaje = j.goles * 2 + j.asistencias + j.bloqueos;
-    } else {
-      j.hattricks = j.hattricks || 0;
-      j.puntaje = j.goles * 2 + j.asistencias + j.hattricks * 3;
-    }
-  });
+  // ❌ Eliminado el cálculo automático de A/P
+  // ✅ Solo usamos el valor que venga del JSON (o "-" si no existe)
+  j.ap = j.ap ?? "-";
+
+  if (j.nombre.includes("(POR)")) {
+    j.salvadas = j.salvadas || 0;
+    j.puntaje = j.goles * 2 + j.asistencias + j.salvadas * 2;
+  } else if (j.nombre.includes("(DFC)")) {
+    j.bloqueos = j.bloqueos || 0;
+    j.entradas = j.entradas || 0;
+    j.puntaje = j.goles * 2 + j.asistencias + j.bloqueos;
+  } else {
+    j.hattricks = j.hattricks || 0;
+    j.puntaje = j.goles * 2 + j.asistencias + j.hattricks * 3;
+  }
+});
 
   // --- RENDERIZAR TABLA ---
   function renderTabla() {
