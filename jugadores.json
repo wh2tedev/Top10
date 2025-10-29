@@ -4,7 +4,7 @@
     "goles": 1,
     "asistencias": 8,
     "gp": 0.17,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 1.33
   },
   {
@@ -12,7 +12,7 @@
     "goles": 0,
     "asistencias": 0,
     "gp": 0,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0
   },
   {
@@ -20,7 +20,7 @@
     "goles": 8,
     "asistencias": 5,
     "gp": 1.33,
-    "hatTricks": 2,
+    "hattricks": 2,
     "ap": 0.83
   },
   {
@@ -28,7 +28,7 @@
     "goles": 0,
     "asistencias": 0,
     "gp": 0,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0
   },
   {
@@ -36,7 +36,7 @@
     "goles": 0,
     "asistencias": 0,
     "gp": 0,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0,
     "salvadas": 11
   },
@@ -45,7 +45,7 @@
     "goles": 3,
     "asistencias": 1,
     "gp": 0.5,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0.17
   },
   {
@@ -53,7 +53,7 @@
     "goles": 2,
     "asistencias": 1,
     "gp": 0.33,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0.17,
     "bloqueos": 4,
     "entradas": 2
@@ -63,7 +63,7 @@
     "goles": 5,
     "asistencias": 8,
     "gp": 0.83,
-    "hatTricks": 1,
+    "hattricks": 1,
     "ap": 1.33
   },
   {
@@ -71,7 +71,7 @@
     "goles": 0,
     "asistencias": 0,
     "gp": 0,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0
   },
   {
@@ -79,7 +79,7 @@
     "goles": 0,
     "asistencias": 0,
     "gp": 0,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0
   },
   {
@@ -87,7 +87,7 @@
     "goles": 11,
     "asistencias": 1,
     "gp": 1.83,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0.17
   },
   {
@@ -95,7 +95,7 @@
     "goles": 2,
     "asistencias": 2,
     "gp": 0.17,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0.17,
     "salvadas": 4
   },
@@ -104,7 +104,7 @@
     "goles": 1,
     "asistencias": 2,
     "gp": 0.08,
-    "hatTricks": 0,
+    "hattricks": 0,
     "ap": 0.17,
     "bloqueos": 0,
     "entradas": 0
