@@ -5,7 +5,7 @@
     "asistencias": 8,
     "gp": 0.17,
     "hatTricks": 0,
-    "ap": 0
+    "ap": 1.33
   },
   {
     "nombre": "Bola (LI)",
@@ -20,8 +20,8 @@
     "goles": 8,
     "asistencias": 5,
     "gp": 1.33,
-    "hatTricks": 0,
-    "ap": 0
+    "hatTricks": 2,
+    "ap": 0.83
   },
   {
     "nombre": "Steven (MC/DEL)",
@@ -38,30 +38,33 @@
     "gp": 0,
     "hatTricks": 0,
     "ap": 0
+    "salvadas": 11
   },
   {
     "nombre": "Jhordy (DFC)",
     "goles": 3,
     "asistencias": 1,
-    "gp": 0,
+    "gp": 0.5,
     "hatTricks": 0,
-    "ap": 0
+    "ap": 0.17
   },
   {
     "nombre": "Alexander (DFC)",
     "goles": 2,
     "asistencias": 1,
-    "gp": 0,
+    "gp": 0.33,
     "hatTricks": 0,
-    "ap": 0
+    "ap": 0.17,
+    "bloqueos": 4,
+    "entradas": 2
   },
   {
     "nombre": "Franklin (LD)",
     "goles": 5,
     "asistencias": 8,
-    "gp": 0,
-    "hatTricks": 0,
-    "ap": 0
+    "gp": 0.83,
+    "hatTricks": 1,
+    "ap": 1.33
   },
   {
     "nombre": "Hessiel (POR)",
@@ -85,7 +88,7 @@
     "asistencias": 1,
     "gp": 1.83,
     "hatTricks": 0,
-    "ap": 0
+    "ap": 0.17
   },
   {
     "nombre": "Andres (POR)",
@@ -93,7 +96,7 @@
     "asistencias": 2,
     "gp": 0.17,
     "hatTricks": 0,
-    "ap": 0,
+    "ap": 0.17,
     "salvadas": 4
   },
   {
@@ -102,6 +105,8 @@
     "asistencias": 2,
     "gp": 0.08,
     "hatTricks": 0,
-    "ap": 0
+    "ap": 0.17,
+    "bloqueos": 0,
+    "entradas": 0
   }
 ]
