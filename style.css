@@ -474,7 +474,7 @@ body.light .btn-vermas {
   background: var(--card);
   color: #fff;
   margin: 12px auto;
-  padding: 16px 22px;
+  padding: 24px;
   border-radius: 12px;
   max-width: 420px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.4);
