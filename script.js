@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   function ordenarRanking(criterio) {
     jugadores.sort((a, b) => b[criterio] - a[criterio]);
     renderTabla();
+    mostrarJugadorSemana();
   }
 
   // --- EVENTOS DE STATS ---
@@ -199,6 +200,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       setTimeout(() => document.body.classList.remove("transicion-tema"), 350);
     });
   });
+  // --- JUGADOR DE LA SEMANA ---
+function mostrarJugadorSemana() {
+  const jugadorSemanaEl = document.getElementById("jugador-semana");
+  if (!jugadorSemanaEl || jugadores.length === 0) return;
+
+  // Jugador con más puntaje
+  const topJugador = [...jugadores].sort((a, b) => b.puntaje - a.puntaje)[0];
+
+  jugadorSemanaEl.innerHTML = `
+    <p><strong>${topJugador.nombre}</strong></p>
+    <p>⭐️ ${topJugador.puntaje} pts</p>
+    <p>⚽ ${topJugador.goles} &nbsp;|&nbsp; 🎯 ${topJugador.asistencias}</p>
+  `;
+}
 
   // --- INICIALIZAR ---
   ordenarRanking(ordenPreferido);
