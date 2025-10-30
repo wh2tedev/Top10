@@ -202,4 +202,32 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- INICIALIZAR ---
   ordenarRanking(ordenPreferido);
+
+  // --- BOTÓN FLOTANTE VER MÁS ---
+  const btnVerMas = document.getElementById("btn-vermas");
+  const sectionPartidos = document.getElementById("partidos-balon");
+
+  // Desplazamiento suave hacia la sección
+  btnVerMas.addEventListener("click", () => {
+    if (sectionPartidos) {
+      sectionPartidos.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+
+  // Mostrar / ocultar según el scroll
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight;
+    const winHeight = window.innerHeight;
+
+    const atBottom = scrollTop + winHeight >= docHeight - 120;
+
+    if (scrollTop < 100) {
+      btnVerMas.classList.remove("oculto");
+    } else if (atBottom) {
+      btnVerMas.classList.add("oculto");
+    } else {
+      btnVerMas.classList.add("oculto");
+    }
+  });
 });
