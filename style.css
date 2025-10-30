@@ -461,3 +461,33 @@ body.light .btn-vermas {
   pointer-events: none;
   transform: translateX(-50%) scale(0.8);
 }
+/* --- Jugador de la Semana --- */
+.jugador-semana-container {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  color: var(--accent);
+  transition: color 0.35s ease;
+}
+
+.jugador-semana-card {
+  background: var(--card);
+  color: #fff;
+  margin: 12px auto;
+  padding: 16px 22px;
+  border-radius: 12px;
+  max-width: 420px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+body.light .jugador-semana-card {
+  background: #fff;
+  color: #111;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.jugador-semana-card strong {
+  color: var(--accent);
+  font-size: 18px;
+  }
