@@ -331,3 +331,98 @@ body.light .btn-ver-mas:hover {
 html {
   scroll-behavior: smooth;
 }
+/* --- CORRECCIÓN DE LAYOUT --- */
+body {
+  display: block; /* ✅ Se elimina el flex que alineaba todo a la derecha */
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+/* --- BOTÓN VER MÁS --- */
+.btn-ver-mas {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 18px;
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 200, 255, 0.25);
+}
+
+.btn-ver-mas:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 200, 255, 0.35);
+}
+
+/* Light mode */
+body.light .btn-ver-mas {
+  background-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.25);
+}
+body.light .btn-ver-mas:hover {
+  box-shadow: 0 6px 18px rgba(0, 119, 204, 0.35);
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- SECCIÓN PARTIDOS Y BALÓN --- */
+.info-section {
+  width: 100%;
+  max-width: 760px;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  text-align: center;
+  color: #e6edf3;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.info-section h2 {
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.info-section p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+body.light .info-section {
+  background: #fff;
+  color: #111;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+body.light .info-section p {
+  color: #555;
+}
+
+/* --- FOOTER --- */
+footer {
+  width: 100%;
+  max-width: 760px;
+  text-align: center;
+  padding: 16px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+body.light footer {
+  color: #555;
+  }
