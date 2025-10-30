@@ -426,3 +426,38 @@ footer {
 body.light footer {
   color: #555;
   }
+/* --- BOTÓN FLOTANTE VER MÁS (CENTRADO Y PEQUEÑO) --- */
+.btn-vermas {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 999;
+}
+
+.btn-vermas:hover {
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 200, 255, 0.35);
+}
+
+body.light .btn-vermas {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.25);
+}
+
+.btn-vermas.oculto {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) scale(0.8);
+}
