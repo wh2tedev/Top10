@@ -3,9 +3,9 @@
     "nombre": "Ezequiel (EI)",
     "goles": 7,
     "asistencias": 14,
-    "gp": 0.5,
+    "gp": 0.7,
     "hattricks": 1,
-    "ap": 1.375
+    "ap": 1.4
   },
   {
     "nombre": "Bola (LI)",
@@ -19,17 +19,17 @@
     "nombre": "Samuel (ED)",
     "goles": 12,
     "asistencias": 8,
-    "gp": 1.125,
+    "gp": 1.2,
     "hattricks": 2,
-    "ap": 0.75
+    "ap": 0.8
   },
   {
     "nombre": "Steven (MC/DEL)",
     "goles": 8,
     "asistencias": 1,
-    "gp": 0.75,
+    "gp": 0.8,
     "hattricks": 1,
-    "ap": 0.125
+    "ap": 0.1
   },
   {
     "nombre": "Luis (POR)",
@@ -43,10 +43,10 @@
   {
     "nombre": "Jhordy (DFC)",
     "goles": 4,
-    "asistencias": 1,
-    "gp": 0.375,
+    "asistencias": 2,
+    "gp": 0.4,
     "hattricks": 0,
-    "ap": 0.25,
+    "ap": 0.2,
     "bloqueos": 7,
     "entradas": 2
   },
@@ -54,9 +54,9 @@
     "nombre": "Alexander (DFC)",
     "goles": 5,
     "asistencias": 2,
-    "gp": 0.375,
+    "gp": 0.5,
     "hattricks": 0,
-    "ap": 0.25,
+    "ap": 0.2,
     "bloqueos": 6,
     "entradas": 2
   },
@@ -64,9 +64,9 @@
     "nombre": "Franklin (LD)",
     "goles": 9,
     "asistencias": 16,
-    "gp": 1,
+    "gp": 0.9,
     "hattricks": 2,
-    "ap": 1.75
+    "ap": 1.6
   },
   {
     "nombre": "Hessiel (POR)",
@@ -89,9 +89,9 @@
     "nombre": "Josmil (DC)",
     "goles": 13,
     "asistencias": 3,
-    "gp": 1.5,
+    "gp": 1.3,
     "hattricks": 0,
-    "ap": 0.25
+    "ap": 0.3
   },
   {
     "nombre": "Andres (POR)",
@@ -108,8 +108,8 @@
     "asistencias": 5,
     "gp": 0.08,
     "hattricks": 0,
-    "ap": 0.375,
-    "bloqueos": 12,
+    "ap": 0.5,
+    "bloqueos": 16,
     "entradas": 5
   }
 ]
