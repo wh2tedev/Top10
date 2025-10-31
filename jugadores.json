@@ -1,8 +1,8 @@
 [
   {
     "nombre": "Ezequiel (EI)",
-    "goles": 5,
-    "asistencias": 12,
+    "goles": 7,
+    "asistencias": 14,
     "gp": 0.5,
     "hattricks": 1,
     "ap": 1.375
@@ -17,15 +17,15 @@
   },
   {
     "nombre": "Samuel (ED)",
-    "goles": 9,
-    "asistencias": 6,
+    "goles": 12,
+    "asistencias": 8,
     "gp": 1.125,
     "hattricks": 2,
     "ap": 0.75
   },
   {
     "nombre": "Steven (MC/DEL)",
-    "goles": 6,
+    "goles": 8,
     "asistencias": 1,
     "gp": 0.75,
     "hattricks": 1,
@@ -38,32 +38,32 @@
     "gp": 0,
     "hattricks": 0,
     "ap": 0,
-    "salvadas": 6
+    "salvadas": 7
   },
   {
     "nombre": "Jhordy (DFC)",
-    "goles": 3,
-    "asistencias": 2,
+    "goles": 4,
+    "asistencias": 1,
     "gp": 0.375,
     "hattricks": 0,
     "ap": 0.25,
-    "bloqueos": 4,
+    "bloqueos": 7,
     "entradas": 2
   },
   {
     "nombre": "Alexander (DFC)",
-    "goles": 3,
+    "goles": 5,
     "asistencias": 2,
     "gp": 0.375,
     "hattricks": 0,
     "ap": 0.25,
-    "bloqueos": 5,
+    "bloqueos": 6,
     "entradas": 2
   },
   {
     "nombre": "Franklin (LD)",
-    "goles": 8,
-    "asistencias": 14,
+    "goles": 9,
+    "asistencias": 16,
     "gp": 1,
     "hattricks": 2,
     "ap": 1.75
@@ -75,7 +75,7 @@
     "gp": 0,
     "hattricks": 0,
     "ap": 0,
-    "salvadas": 1
+    "salvadas": 2
   },
   {
     "nombre": "Royce (LD)",
@@ -87,8 +87,8 @@
   },
   {
     "nombre": "Josmil (DC)",
-    "goles": 12,
-    "asistencias": 2,
+    "goles": 13,
+    "asistencias": 3,
     "gp": 1.5,
     "hattricks": 0,
     "ap": 0.25
@@ -100,16 +100,16 @@
     "gp": 0.17,
     "hattricks": 0,
     "ap": 0.17,
-    "salvadas": 4
+    "salvadas": 8
   },
   {
     "nombre": "Antony (DFC)",
     "goles": 1,
-    "asistencias": 3,
+    "asistencias": 5,
     "gp": 0.08,
     "hattricks": 0,
     "ap": 0.375,
-    "bloqueos": 6,
-    "entradas": 0
+    "bloqueos": 12,
+    "entradas": 5
   }
 ]
