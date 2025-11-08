@@ -1,35 +1,55 @@
 [
   {
     "nombre": "Ezequiel (EI)",
-    "goles": 7,
-    "asistencias": 14,
-    "gp": 0.7,
+    "goles": 12,
+    "asistencias": 18,
+    "gp": 0.5,
     "hattricks": 1,
-    "ap": 1.4
+    "ap": 1.13,
+    "semana": {
+      "goles": 5,
+      "asistencias": 4
+    }
   },
   {
     "nombre": "Bola (LI)",
-    "goles": 1,
+    "goles": 4,
     "asistencias": 0,
-    "gp": 0.08,
+    "gp": 0.25,
     "hattricks": 0,
-    "ap": 0
+    "ap": 0,
+    "semana": {
+      "goles": 0,
+      "asistencias": 0,
+      "hattricks": 0,
+      "bloqueos": 0,
+      "entradas": 0,
+      "salvadas": 0
+    }
   },
   {
     "nombre": "Samuel (ED)",
-    "goles": 12,
-    "asistencias": 8,
-    "gp": 1.2,
+    "goles": 17,
+    "asistencias": 14,
+    "gp": 1.06,
     "hattricks": 2,
-    "ap": 0.8
+    "ap": 0.88,
+    "semana": {
+      "goles": 5,
+      "asistencias": 6
+    }
   },
   {
     "nombre": "Steven (MC/DEL)",
-    "goles": 8,
+    "goles": 12,
     "asistencias": 1,
-    "gp": 0.8,
-    "hattricks": 1,
-    "ap": 0.1
+    "gp": 0.75,
+    "hattricks": 2,
+    "ap": 0.06,
+    "semana": {
+      "goles": 4,
+      "asistencias": 0
+    }
   },
   {
     "nombre": "Luis (POR)",
@@ -38,35 +58,63 @@
     "gp": 0,
     "hattricks": 0,
     "ap": 0,
-    "salvadas": 7
+    "salvadas": 8,
+    "semana": {
+      "goles": 0,
+      "asistencias": 0,
+      "hattricks": 0,
+      "bloqueos": 0,
+      "entradas": 0,
+      "salvadas": 1
+    }
   },
   {
     "nombre": "Jhordy (DFC)",
-    "goles": 4,
+    "goles": 6,
     "asistencias": 2,
-    "gp": 0.4,
+    "gp": 0.38,
     "hattricks": 0,
-    "ap": 0.2,
-    "bloqueos": 7,
-    "entradas": 2
+    "ap": 0.13,
+    "bloqueos": 9,
+    "entradas": 2,
+    "semana": {
+      "goles": 2,
+      "asistencias": 0,
+      "hattricks": 0,
+      "bloqueos": 2,
+      "entradas": 0,
+      "salvadas": 0
+    }
   },
   {
     "nombre": "Alexander (DFC)",
-    "goles": 5,
+    "goles": 6,
     "asistencias": 2,
-    "gp": 0.5,
+    "gp": 0.38,
     "hattricks": 0,
-    "ap": 0.2,
+    "ap": 0.13,
     "bloqueos": 6,
-    "entradas": 2
+    "entradas": 2,
+    "semana": {
+      "goles": 0,
+      "asistencias": 0,
+      "hattricks": 0,
+      "bloqueos": 0,
+      "entradas": 0,
+      "salvadas": 0
+    }
   },
   {
     "nombre": "Franklin (LD)",
-    "goles": 9,
-    "asistencias": 16,
-    "gp": 0.9,
+    "goles": 15,
+    "asistencias": 20,
+    "gp": 0.94,
     "hattricks": 2,
-    "ap": 1.6
+    "ap": 1.25,
+    "semana": {
+      "goles": 6,
+      "asistencias": 4
+    }
   },
   {
     "nombre": "Hessiel (POR)",
@@ -75,7 +123,15 @@
     "gp": 0,
     "hattricks": 0,
     "ap": 0,
-    "salvadas": 2
+    "salvadas": 4,
+    "semana": {
+      "goles": 0,
+      "asistencias": 0,
+      "hattricks": 0,
+      "bloqueos": 0,
+      "entradas": 0,
+      "salvadas": 2
+    }
   },
   {
     "nombre": "Royce (LD)",
@@ -83,15 +139,27 @@
     "asistencias": 0,
     "gp": 0.125,
     "hattricks": 0,
-    "ap": 0
+    "ap": 0,
+    "semana": {
+      "goles": 0,
+      "asistencias": 0,
+      "hattricks": 0,
+      "bloqueos": 0,
+      "entradas": 0,
+      "salvadas": 0
+    }
   },
   {
     "nombre": "Josmil (DC)",
-    "goles": 13,
+    "goles": 21,
     "asistencias": 3,
-    "gp": 1.3,
+    "gp": 1.31,
     "hattricks": 0,
-    "ap": 0.3
+    "ap": 0.19,
+    "semana": {
+      "goles": 8,
+      "asistencias": 2
+    }
   },
   {
     "nombre": "Andres (POR)",
@@ -100,7 +168,15 @@
     "gp": 0.17,
     "hattricks": 0,
     "ap": 0.17,
-    "salvadas": 8
+    "salvadas": 29,
+    "semana": {
+      "goles": 0,
+      "asistencias": 0,
+      "hattricks": 0,
+      "bloqueos": 0,
+      "entradas": 0,
+      "salvadas": 29
+    }
   },
   {
     "nombre": "Antony (DFC)",
@@ -109,7 +185,15 @@
     "gp": 0.08,
     "hattricks": 0,
     "ap": 0.5,
-    "bloqueos": 16,
-    "entradas": 5
+    "bloqueos": 43,
+    "entradas": 9,
+    "semana": {
+      "goles": 0,
+      "asistencias": 0,
+      "hattricks": 0,
+      "bloqueos": 27,
+      "entradas": 0,
+      "salvadas": 0
+    }
   }
-]
+    ]
