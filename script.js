@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   } else if (j.nombre.includes("(DFC)")) {
     j.bloqueos = j.bloqueos || 0;
     j.entradas = j.entradas || 0;
-    j.puntaje = j.goles * 2 + j.asistencias + j.bloqueos;
+    j.puntaje = j.goles * 2 + j.asistencias + j.bloqueos * 0.5;
   } else {
     j.hattricks = j.hattricks || 0;
     j.puntaje = j.goles * 2 + j.asistencias + j.hattricks * 3;
@@ -200,20 +200,34 @@ document.addEventListener("DOMContentLoaded", async () => {
       setTimeout(() => document.body.classList.remove("transicion-tema"), 350);
     });
   });
-  // --- JUGADOR DE LA SEMANA ---
-function mostrarJugadorSemana() {
+  function mostrarJugadorSemana() {
   const jugadorSemanaEl = document.getElementById("jugador-semana");
   if (!jugadorSemanaEl || jugadores.length === 0) return;
 
-  // Jugador con más puntaje
-  const topJugador = [...jugadores].sort((a, b) => b.puntaje - a.puntaje)[0];
+  // ✅ Jugador con más puntaje semanal
+  const jugadoresSemana = jugadores.map(j => {
+    const s = j.semana || {};
+    let puntajeSemana = 0;
+
+    if (j.nombre.includes("(POR)")) {
+      puntajeSemana = (s.goles || 0) * 2 + (s.asistencias || 0) + (s.salvadas || 0) * 0.5;
+    } else if (j.nombre.includes("(DFC)")) {
+      puntajeSemana = (s.goles || 0) * 2 + (s.asistencias || 0) + (s.bloqueos || 0) * 0.5;
+    } else {
+      puntajeSemana = (s.goles || 0) * 2 + (s.asistencias || 0) + (s.hattricks || 0) * 3;
+    }
+
+    return { ...j, puntajeSemana };
+  });
+
+  const topJugador = jugadoresSemana.sort((a, b) => b.puntajeSemana - a.puntajeSemana)[0];
 
   jugadorSemanaEl.innerHTML = `
     <p><strong>${topJugador.nombre}</strong></p>
-    <p>⭐️ ${topJugador.puntaje} pts</p>
-    <p>⚽ ${topJugador.goles} &nbsp;|&nbsp; 🎯 ${topJugador.asistencias}</p>
+    <p>⭐️ ${topJugador.puntajeSemana} pts (semana)</p>
+    <p>⚽ ${topJugador.semana?.goles || 0} &nbsp;|&nbsp; 🎯 ${topJugador.semana?.asistencias || 0}</p>
   `;
-}
+  }
 
   // --- INICIALIZAR ---
   ordenarRanking(ordenPreferido);
