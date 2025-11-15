@@ -1,14 +1,14 @@
 [
   {
     "nombre": "Ezequiel (EI)",
-    "goles": 12,
-    "asistencias": 18,
+    "goles": 16,
+    "asistencias": 21,
     "gp": 0.5,
     "hattricks": 1,
     "ap": 1.13,
     "semana": {
-      "goles": 5,
-      "asistencias": 4
+      "goles": 4,
+      "asistencias": 3
     }
   },
   {
@@ -29,14 +29,14 @@
   },
   {
     "nombre": "Samuel (ED)",
-    "goles": 17,
-    "asistencias": 14,
+    "goles": 24,
+    "asistencias": 18,
     "gp": 1.06,
     "hattricks": 2,
     "ap": 0.88,
     "semana": {
-      "goles": 5,
-      "asistencias": 6
+      "goles": 7,
+      "asistencias": 4
     }
   },
   {
@@ -70,8 +70,8 @@
   },
   {
     "nombre": "Jhordy (DFC)",
-    "goles": 6,
-    "asistencias": 2,
+    "goles": 8,
+    "asistencias": 3,
     "gp": 0.38,
     "hattricks": 0,
     "ap": 0.13,
@@ -79,7 +79,7 @@
     "entradas": 2,
     "semana": {
       "goles": 2,
-      "asistencias": 0,
+      "asistencias": 1,
       "hattricks": 0,
       "bloqueos": 2,
       "entradas": 0,
@@ -88,7 +88,7 @@
   },
   {
     "nombre": "Alexander (DFC)",
-    "goles": 6,
+    "goles": 7,
     "asistencias": 2,
     "gp": 0.38,
     "hattricks": 0,
@@ -96,7 +96,7 @@
     "bloqueos": 6,
     "entradas": 2,
     "semana": {
-      "goles": 0,
+      "goles": 1,
       "asistencias": 0,
       "hattricks": 0,
       "bloqueos": 0,
@@ -106,13 +106,13 @@
   },
   {
     "nombre": "Franklin (LD)",
-    "goles": 15,
-    "asistencias": 20,
+    "goles": 20,
+    "asistencias": 24,
     "gp": 0.94,
     "hattricks": 2,
     "ap": 1.25,
     "semana": {
-      "goles": 6,
+      "goles": 5,
       "asistencias": 4
     }
   },
@@ -157,8 +157,8 @@
     "hattricks": 0,
     "ap": 0.19,
     "semana": {
-      "goles": 8,
-      "asistencias": 2
+      "goles": 0,
+      "asistencias": 0
     }
   },
   {
@@ -168,14 +168,14 @@
     "gp": 0.17,
     "hattricks": 0,
     "ap": 0.17,
-    "salvadas": 29,
+    "salvadas": 30,
     "semana": {
       "goles": 0,
       "asistencias": 0,
       "hattricks": 0,
       "bloqueos": 0,
       "entradas": 0,
-      "salvadas": 29
+      "salvadas": 1
     }
   },
   {
@@ -191,7 +191,7 @@
       "goles": 0,
       "asistencias": 0,
       "hattricks": 0,
-      "bloqueos": 27,
+      "bloqueos": 12,
       "entradas": 0,
       "salvadas": 0
     }
