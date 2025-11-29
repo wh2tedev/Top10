@@ -253,3 +253,54 @@ body.light #select-orden{ background:#fff; color:#000; border:1px solid #ddd }
   .title{ font-size:18px }
   .jugador-semana{ flex-direction:column; gap:8px; text-align:center; }
 }
+/* AUTH (Login/Registro) */
+
+.auth-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.auth-box {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.auth-box input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  background: #111;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: var(--accent);
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+.link {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
