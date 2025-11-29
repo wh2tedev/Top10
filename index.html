@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Top Jugadores — FYE FYA</title>
+  <link rel="stylesheet" href="style.css?v=1.0.4" />
+
+  <!-- Firebase Config (ejemplo, el real NO SE SUBE) -->
+  <script src="firebase-config.example.js"></script>
+
+  <!-- Auth System -->
+  <script type="module" src="auth.js"></script>
+</head>
+
+<body>
+
+  <!-- LOGIN -->
+  <section id="auth-screen" class="auth-screen">
+    <div class="auth-box">
+      <h2>Iniciar sesión</h2>
+      <input type="email" id="loginEmail" placeholder="Correo">
+      <input type="password" id="loginPassword" placeholder="Contraseña">
+      <button id="login-btn">Entrar</button>
+      <p class="link" id="go-register">Crear cuenta</p>
+      <p class="link" id="reset-pass">¿Olvidaste tu contraseña?</p>
+    </div>
+  </section>
+
+  <!-- REGISTRO -->
+  <section id="register-screen" class="auth-screen hidden">
+    <div class="auth-box">
+      <h2>Crear cuenta</h2>
+      <input type="text" id="regUsername" placeholder="Nombre de usuario">
+      <input type="email" id="regEmail" placeholder="Correo">
+      <input type="password" id="regPassword" placeholder="Contraseña">
+      <button id="register-btn">Crear</button>
+      <p class="link" id="go-login">Volver</p>
+    </div>
+  </section>
+
+  <!-- SIDEBAR Y CONTENIDO PRINCIPAL (TU WEB ORIGINAL) -->
+  <button id="btn-config" class="btn-config" aria-label="Abrir configuración">
+    <span></span><span></span><span></span>
+  </button>
+
+  <aside id="sidebar-config" class="sidebar-config" aria-hidden="true">
+    <h2>Configuración</h2>
+
+    <div class="config-item">
+      <label for="switch-medallas">Mostrar medallas</label>
+      <label class="switch">
+        <input type="checkbox" id="switch-medallas" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="config-item">
+      <label for="switch-tema">Modo claro</label>
+      <label class="switch">
+        <input type="checkbox" id="switch-tema" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="config-item">
+      <label for="select-orden">Ordenar ranking por</label>
+      <select id="select-orden">
+        <option value="puntaje">⭐ Puntaje total</option>
+        <option value="goles">⚽ Goles</option>
+        <option value="asistencias">🎯 Asistencias</option>
+      </select>
+    </div>
+  </aside>
+
+  <main id="main" class="main-content" style="display:none;">
+    <div class="container">
+
+      <header class="header">
+        <h1 class="title">🏆 Top jugadores FYE FYA</h1>
+        <p class="subtitle">Todas las estadísticas se actualizarán el viernes/sábado.</p>
+      </header>
+
+      <section id="jugador-semana" class="card jugador-semana">
+        <div class="jugador-placeholder"><p>Cargando jugador de la semana...</p></div>
+      </section>
+
+      <div class="table-wrap">
+        <table id="tabla-jugadores" class="tabla-jugadores">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Jugador</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <section id="partidos-balon" class="cards-row">
+        <article class="card info-card">
+          <h3>⚽ LALIGA (FYE)</h3>
+          <p class="muted">Próximamente — noviembre</p>
+        </article>
+        <article class="card info-card">
+          <h3>🏅 Balón de Oro</h3>
+          <p class="muted">Próximamente — 2026</p>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p>By: <strong>Wh2teDev.</strong></p>
+      </footer>
+
+    </div>
+  </main>
+
+  <button id="btn-vermas" class="btn-vermas">⬇</button>
+
+  <script src="script.js?v=1.0.4"></script>
+</body>
+                                                                                  </html>
