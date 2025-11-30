@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Top Jugadores — FYE FYA</title>
+  <link rel="stylesheet" href="style.css?v=1.0.6" />
+</head>
+<body>
+  <!-- AUTH SCREEN (visible al entrar, bloquea la app) -->
+  <div id="auth-screen" class="auth-screen" role="dialog" aria-modal="true">
+    <div class="auth-card auth-card--modern" role="document">
+      <div class="auth-header">
+        <div class="auth-logo">🏟️</div>
+        <div class="auth-title-wrap">
+          <h2 id="auth-title" class="auth-title">Inicia sesión</h2>
+          <p class="auth-sub">Accede para ver el ranking de jugadores</p>
+        </div>
+      </div>
+
+      <div class="auth-body">
+        <div class="auth-actions">
+          <button id="btn-login" class="auth-btn auth-btn--primary">Iniciar sesión</button>
+          <button id="btn-signup" class="auth-btn auth-btn--ghost">Crear cuenta</button>
+        </div>
+
+        <div class="auth-extra">
+          <p class="muted">¿Prefieres otro método? Auth0 te da email/contraseña y proveedores (si los activas).</p>
+        </div>
+
+        <div id="auth-error" class="auth-error" aria-live="polite" style="display:none"></div>
+
+        <div class="auth-footer">
+          <small class="muted">Protegido por Auth0</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP CONTENT (oculto hasta login) -->
+  <div id="app-content" class="hidden" aria-hidden="true">
+    <!-- SIDEBAR (off-canvas) -->
+    <button id="btn-config" class="btn-config" aria-label="Abrir configuración" title="Configuración">
+      <span></span><span></span><span></span>
+    </button>
+
+    <aside id="sidebar-config" class="sidebar-config" aria-hidden="true">
+      <h2>Configuración</h2>
+
+      <!-- USER INFO + Logout -->
+      <div class="config-item user-info" id="user-info" style="flex-direction:column; align-items:flex-start; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img id="user-pic" src="" alt="" style="width:36px;height:36px;border-radius:999px;display:none;object-fit:cover" />
+          <div id="user-name" style="font-size:14px;color:var(--text-light);"></div>
+        </div>
+        <button id="btn-logout" class="auth-btn auth-btn--small" style="width:100%;">Cerrar sesión</button>
+      </div>
+
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:10px 0;" />
+
+      <div class="config-item">
+        <label for="switch-medallas">Mostrar medallas</label>
+        <label class="switch" title="Mostrar medallas">
+          <input type="checkbox" id="switch-medallas" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="config-item">
+        <label for="switch-tema">Modo claro</label>
+        <label class="switch" title="Modo claro">
+          <input type="checkbox" id="switch-tema" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="config-item">
+        <label for="select-orden">Ordenar ranking por</label>
+        <select id="select-orden" aria-label="Ordenar ranking">
+          <option value="puntaje">⭐ Puntaje total</option>
+          <option value="goles">⚽ Goles</option>
+          <option value="asistencias">🎯 Asistencias</option>
+        </select>
+      </div>
+    </aside>
+
+    <main class="main-content" id="main">
+      <div class="container">
+        <header class="header">
+          <h1 class="title">🏆 Top jugadores FYE FYA</h1>
+          <p class="subtitle">Todas las estadísticas se actualizarán el viernes/sábado.</p>
+        </header>
+
+        <!-- Jugador de la semana (tarjeta) -->
+        <section id="jugador-semana" class="card jugador-semana" aria-live="polite">
+          <div class="jugador-placeholder">
+            <p>Cargando jugador de la semana...</p>
+          </div>
+        </section>
+
+        <!-- Tabla -->
+        <div class="table-wrap">
+          <table id="tabla-jugadores" class="tabla-jugadores" aria-label="Top jugadores">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Jugador</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- Info inferior -->
+        <section id="partidos-balon" class="cards-row">
+          <article class="card info-card">
+            <h3>⚽ LALIGA (FYE)</h3>
+            <p class="muted">Próximamente — noviembre</p>
+          </article>
+          <article class="card info-card">
+            <h3>🏅 Balón de Oro</h3>
+            <p class="muted">Próximamente — 2026</p>
+          </article>
+        </section>
+
+        <footer class="footer">
+          <p>By: <strong>Wh2teDev.</strong></p>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Botón flotante centrado (ver más) -->
+    <button id="btn-vermas" class="btn-vermas" aria-label="Ver más">⬇</button>
+  </div>
+
+  <!-- Auth0 SDK + App script -->
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.5.0/auth0-spa-js.production.js"></script>
+  <script src="script.js?v=1.0.6"></script>
+</body>
+  </html>
