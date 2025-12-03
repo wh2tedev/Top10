@@ -1,212 +1,16 @@
-/* script.js — Auth0 (popup) + dashboard original integrado
-   Configurado con tu DOMAIN/CLIENT_ID y protegiendo la app hasta login.
+/* VERSION C — script.js
+   Mantiene y mejora toda la lógica:
+   - carga JSON (nocache)
+   - calcula puntajes totales y semanales
+   - render tabla (mismo HTML)
+   - medallas (no borra puntaje)
+   - sidebar, switches, persisted prefs
+   - collapse stats con animación suave
+   - botón "ver más" centrado y show/hide
 */
 
-/* CONFIG - ya con tus credenciales */
-const AUTH0_DOMAIN = "dev-euyjaxn4mla0dqq4.us.auth0.com";
-const AUTH0_CLIENT_ID = "pjYxk7KUl2UQGlii03v2b6kbeSYjJoK1";
-
-/* Ajusta a tu ruta exacta de GitHub Pages (terminando con /) */
-const APP_URL = "https://wh2tedev.github.io/Top10/";
-
-/* Auth0 client */
-let auth0Client = null;
-
-/* ---------- Inicialización de Auth0 (popup-friendly) ---------- */
-async function initAuth() {
-  try {
-    auth0Client = await createAuth0Client({
-      domain: AUTH0_DOMAIN,
-      // ponemos ambas variantes por compatibilidad
-      client_id: AUTH0_CLIENT_ID,
-      clientId: AUTH0_CLIENT_ID,
-      cacheLocation: "localstorage",
-      useRefreshTokens: true,
-      authorizationParams: { redirect_uri: APP_URL }
-    });
-  } catch (err) {
-    console.error("Auth0 init error:", err);
-    displayAuthInitError(err);
-    return;
-  }
-
-  // Si venimos de redirect fallback, procesar callback
-  if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
-    try {
-      await auth0Client.handleRedirectCallback();
-      window.history.replaceState({}, document.title, APP_URL);
-    } catch (err) {
-      console.warn("handleRedirectCallback error:", err);
-    }
-  }
-
-  // Comprobar si ya autenticado
-  try {
-    const isAuthenticated = await auth0Client.isAuthenticated();
-    if (isAuthenticated) {
-      await onLoginSuccess();
-    } else {
-      showAuthScreen(); // mostrar login bloqueante
-    }
-  } catch (err) {
-    console.error("isAuthenticated check failed:", err);
-    displayAuthInitError(err);
-  }
-
-  wireAuthButtons();
-}
-
-/* ---------- UI helpers ---------- */
-function showAuthScreen() {
-  const auth = document.getElementById("auth-screen");
-  const app = document.getElementById("app-content");
-  if (auth) auth.classList.remove("hidden");
-  if (app) {
-    app.classList.add("hidden");
-    app.setAttribute("aria-hidden", "true");
-  }
-}
-
-function hideAuthScreen() {
-  const auth = document.getElementById("auth-screen");
-  if (auth) auth.classList.add("hidden");
-}
-
-function displayAuthInitError(err) {
-  const el = document.getElementById("auth-error");
-  if (!el) return;
-  el.style.display = "block";
-  el.innerText = "Error inicializando Auth0. Revisa la consola (ver detalles).";
-  console.error(err);
-}
-
-/* Mostrar errores transitorios */
-function showAuthError(msg) {
-  const el = document.getElementById("auth-error");
-  if (!el) return;
-  el.style.display = "block";
-  el.innerText = msg;
-  setTimeout(()=> { el.style.display = "none"; }, 7000);
-}
-
-/* ---------- Login (popup) con fallback a redirect ---------- */
-async function loginPopup(isSignup = false) {
-  if (!auth0Client) { showAuthError("Auth0 no está listo."); return; }
-  setAuthButtonsDisabled(true);
-  try {
-    const options = isSignup ? { authorizationParams: { screen_hint: "signup" } } : {};
-    await auth0Client.loginWithPopup(options);
-    await onLoginSuccess();
-  } catch (err) {
-    console.warn("loginWithPopup falló, intentando redirect:", err);
-    // fallback redirect
-    try {
-      const params = isSignup ? { authorizationParams: { screen_hint: "signup", redirect_uri: APP_URL } } : { authorizationParams: { redirect_uri: APP_URL } };
-      await auth0Client.loginWithRedirect(params);
-    } catch (err2) {
-      console.error("loginWithRedirect también falló:", err2);
-      showAuthError("No se pudo iniciar sesión. Revisa la consola.");
-    }
-  } finally {
-    setAuthButtonsDisabled(false);
-  }
-}
-
-function setAuthButtonsDisabled(state) {
-  const btns = document.querySelectorAll("#btn-login, #btn-signup");
-  btns.forEach(b => { if (b) b.disabled = state; });
-}
-
-/* ---------- Logout ---------- */
-async function logout() {
-  if (!auth0Client) {
-    window.location.href = APP_URL;
-    return;
-  }
-  try {
-    await auth0Client.logout({ logoutParams: { returnTo: APP_URL } });
-  } catch (err) {
-    console.error("Logout error:", err);
-    window.location.href = APP_URL;
-  }
-}
-
-/* ---------- Después de login exitoso ---------- */
-async function onLoginSuccess() {
-  try {
-    const user = await auth0Client.getUser();
-    // Mostrar nombre/foto
-    const elName = document.getElementById("user-name");
-    const elPic = document.getElementById("user-pic");
-    if (elName) elName.innerText = user.name || user.email || "Usuario";
-    if (elPic && user.picture) {
-      elPic.src = user.picture;
-      elPic.style.display = "block";
-    }
-    // ocultar pantalla auth
-    hideAuthScreen();
-    // mostrar app
-    setTimeout(()=> {
-      const app = document.getElementById("app-content");
-      if (app) {
-        app.classList.remove("hidden");
-        app.setAttribute("aria-hidden", "false");
-      }
-    }, 220);
-
-    // detectar roles si existen
-    const roles = user["https://myapp.example/roles"] || user.roles || user.app_metadata?.roles || [];
-    if (Array.isArray(roles) && roles.includes("admin")) addAdminBadge();
-
-    // ejecutar el dashboard (tu código original)
-    await startDashboard();
-  } catch (err) {
-    console.error("onLoginSuccess error:", err);
-    showAuthError("Error al obtener perfil del usuario.");
-  }
-}
-
-/* ---------- Botones de Auth ---------- */
-function wireAuthButtons() {
-  const btnLogin = document.getElementById("btn-login");
-  const btnSignup = document.getElementById("btn-signup");
-  const btnLogout = document.getElementById("btn-logout");
-  if (btnLogin) btnLogin.onclick = () => loginPopup(false);
-  if (btnSignup) btnSignup.onclick = () => loginPopup(true);
-  if (btnLogout) btnLogout.onclick = () => logout();
-}
-
-/* ---------- Add admin badge ---------- */
-function addAdminBadge(){
-  const header = document.querySelector(".header");
-  if (!header) return;
-  if (document.getElementById("admin-badge")) return;
-  const span = document.createElement("div");
-  span.id = "admin-badge";
-  span.style.marginTop = "8px";
-  span.style.color = "var(--accent)";
-  span.style.fontWeight = "700";
-  span.innerText = "⚙️ Admin";
-  header.appendChild(span);
-}
-
-/* ---------- Inicializar ---------- */
-window.addEventListener("load", () => {
-  initAuth().catch(err => {
-    console.error("initAuth error (catch):", err);
-    displayAuthInitError(err);
-  });
-});
-
-/* ============================
-   START DASHBOARD (tu código original INTACTO)
-   ============================ */
-async function startDashboard(){
-  /* VERSION C — script.js
-     TODO tu código original está aquí, sin cambios de lógica.
-  */
-
-  // Elements (scoped to app-content)
+document.addEventListener("DOMContentLoaded", async () => {
+  // Elements
   const tableBody = document.querySelector("#tabla-jugadores tbody");
   const switchMedallas = document.getElementById("switch-medallas");
   const switchTema = document.getElementById("switch-tema");
@@ -223,22 +27,20 @@ async function startDashboard(){
   const prefTema = localStorage.getItem("temaClaro") === "true";
 
   // Apply stored prefs
-  if (switchMedallas) switchMedallas.checked = prefMedallas;
-  if (selectOrden) selectOrden.value = prefOrden;
-  if (switchTema) switchTema.checked = prefTema;
+  switchMedallas.checked = prefMedallas;
+  selectOrden.value = prefOrden;
+  switchTema.checked = prefTema;
   if (prefTema) document.body.classList.add("light");
 
   // Sidebar open/close
-  if (btnConfig && sidebar) {
-    btnConfig.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-      btnConfig.style.display = sidebar.classList.contains("open") ? "none" : "flex";
-      sidebar.setAttribute("aria-hidden", String(!sidebar.classList.contains("open")));
-    });
-  }
+  btnConfig.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    btnConfig.style.display = sidebar.classList.contains("open") ? "none" : "flex";
+    sidebar.setAttribute("aria-hidden", String(!sidebar.classList.contains("open")));
+  });
 
   document.addEventListener("click", (e) => {
-    if (sidebar && btnConfig && !sidebar.contains(e.target) && !btnConfig.contains(e.target) && sidebar.classList.contains("open")) {
+    if (!sidebar.contains(e.target) && !btnConfig.contains(e.target) && sidebar.classList.contains("open")) {
       sidebar.classList.remove("open");
       btnConfig.style.display = "flex";
       sidebar.setAttribute("aria-hidden", "true");
@@ -252,7 +54,7 @@ async function startDashboard(){
     jugadores = await res.json();
   } catch (err) {
     console.error("Error al cargar jugadores.json", err);
-    if (tableBody) tableBody.innerHTML = "<tr><td colspan='2'>Error al cargar datos.</td></tr>";
+    tableBody.innerHTML = "<tr><td colspan='2'>Error al cargar datos.</td></tr>";
     return;
   }
 
@@ -279,7 +81,6 @@ async function startDashboard(){
 
   /* ---------- RENDER ---------- */
   function renderTabla() {
-    if (!tableBody) return;
     tableBody.innerHTML = "";
     jugadores.forEach((j, idx) => {
       const tr = document.createElement("tr");
@@ -349,7 +150,7 @@ async function startDashboard(){
   /* ---------- MEDALS ---------- */
   function aplicarMedallas() {
     // only set visual medal on the name span (not overwrite score)
-    if (!switchMedallas || !switchMedallas.checked) return;
+    if (!switchMedallas.checked) return;
     document.querySelectorAll(".player").forEach((tr, i) => {
       const nameSpan = tr.querySelector(".nombre-jugador");
       if (!nameSpan) return;
@@ -428,17 +229,17 @@ async function startDashboard(){
   }
 
   /* ---------- CONFIG EVENTS ---------- */
-  if (switchMedallas) switchMedallas.addEventListener("change", () => {
+  switchMedallas.addEventListener("change", () => {
     localStorage.setItem("mostrarMedallas", switchMedallas.checked);
     renderTabla();
   });
 
-  if (selectOrden) selectOrden.addEventListener("change", () => {
+  selectOrden.addEventListener("change", () => {
     localStorage.setItem("ordenRanking", selectOrden.value);
     ordenarRanking(selectOrden.value);
   });
 
-  if (switchTema) switchTema.addEventListener("change", () => {
+  switchTema.addEventListener("change", () => {
     const light = switchTema.checked;
     localStorage.setItem("temaClaro", light);
     document.body.classList.add("transicion-tema");
@@ -511,4 +312,4 @@ async function startDashboard(){
   /* ---------- INITIALIZE (order, render, semana) ---------- */
   ordenarRanking(prefOrden); // this will call renderTabla() and mostrarJugadorSemana() internally
   mostrarJugadorSemana(); // ensure it's present
-}
+});
